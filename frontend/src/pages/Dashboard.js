@@ -4,6 +4,8 @@ import ComplianceChart from '../components/ComplianceChart';
 import Dropdown from '../components/Dropdown';
 import { useNavigate } from "react-router-dom";
 import { Card, Button } from "../ui"; // from src/pages → src/ui // add CTA Button
+import FailedChecksTable from "../components/FailedChecksTable";
+import report from "../data/autoaudit_report_sample.json"; // adjust if your path differs
 
 
 
@@ -210,9 +212,11 @@ export default function Dashboard({ sidebarWidth = 220, isDarkMode, onThemeToggl
 
 
         <div className='fit'>
-          <section className="below-grid">
-            <h3 className="section-title"></h3>
-            <div className="content"></div>
+          <section className="bottom-grid">
+            <h3 className="section-title">Audit Results</h3>
+            <div className="content">
+              <FailedChecksTable results={report} />
+            </div>
           </section>
         </div>
       </div>
